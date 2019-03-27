@@ -259,7 +259,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DifferenceKit/DifferenceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RocketChatViewController/RocketChatViewController.framework",
 			);
@@ -270,7 +270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B9944679484906D163D3401 /* [CP] Check Pods Manifest.lock */ = {
