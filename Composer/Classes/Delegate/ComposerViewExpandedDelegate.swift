@@ -40,7 +40,7 @@ public protocol ComposerViewExpandedDelegate: ComposerViewDelegate,
     func hintPrefixes(for composerView: ComposerView) -> [Character]
     func isHinting(in composerView: ComposerView) -> Bool
 
-    func composerView(_ composerView: ComposerView, didChangeHintPrefixedWord word: String)
+    func composerView(_ composerView: ComposerView, didChangeHintPrefixedWord word: String, completion: @escaping () -> Void)
     func composerView(_ composerView: ComposerView, didPressSendButton button: UIButton)
     func composerView(_ composerView: ComposerView, didPressUploadButton button: UIButton)
     func composerView(_ composerView: ComposerView, didPressRecordAudioButton button: UIButton)
@@ -52,16 +52,17 @@ public protocol ComposerViewExpandedDelegate: ComposerViewDelegate,
 public extension ComposerViewExpandedDelegate {
     func composerViewDidChangeSelection(_ composerView: ComposerView) {
         func didChangeHintPrefixedWord(_ word: String) {
-            self.composerView(composerView, didChangeHintPrefixedWord: word)
+            self.composerView(composerView, didChangeHintPrefixedWord: word) {
 
-            guard let hintsView = composerView.hintsView else {
-                return
-            }
+                guard let hintsView = composerView.hintsView else {
+                  return
+                }
 
-            UIView.animate(withDuration: 0.2) {
-                hintsView.reloadData()
-                hintsView.invalidateIntrinsicContentSize()
-                hintsView.layoutIfNeeded()
+                UIView.animate(withDuration: 0.2) {
+                    hintsView.reloadData()
+                    hintsView.invalidateIntrinsicContentSize()
+                    hintsView.layoutIfNeeded()
+                }
             }
         }
 

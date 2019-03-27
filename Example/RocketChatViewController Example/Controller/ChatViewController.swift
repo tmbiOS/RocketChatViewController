@@ -136,8 +136,9 @@ extension ChatViewController: ComposerViewExpandedDelegate {
         return ["/", "@", "#"]
     }
 
-    func composerView(_ composerView: ComposerView, didChangeHintPrefixedWord word: String) {
+    func composerView(_ composerView: ComposerView, didChangeHintPrefixedWord word: String, completion: @escaping () -> Void) {
         hintPrefixedWord = word
+        completion()
     }
 
     func isHinting(in composerView: ComposerView) -> Bool {
