@@ -214,6 +214,7 @@
 				TargetAttributes = {
 					417670DB210FABAA0070CA5B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -258,15 +259,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DifferenceKit/DifferenceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RocketChatViewController/RocketChatViewController.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DifferenceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RocketChatViewController.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RocketChatViewController Example/Pods-RocketChatViewController Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -471,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "chat.rocket.rocketchatviewcontroller.example.RocketChatViewController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -492,7 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "chat.rocket.rocketchatviewcontroller.example.RocketChatViewController-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
