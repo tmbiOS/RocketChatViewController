@@ -108,7 +108,7 @@ public class PreviewAudioView: UIView, ComposerLocalizable {
         backgroundColor = .white
         clipsToBounds = true
 
-        NotificationCenter.default.addObserver(forName: .UIContentSizeCategoryDidChange, object: nil, queue: nil, using: { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: nil, using: { [weak self] _ in
             self?.setNeedsLayout()
         })
 
@@ -172,10 +172,14 @@ public class PreviewAudioView: UIView, ComposerLocalizable {
 // MARK: Events
 
 extension PreviewAudioView {
+
     @objc func touchUpInsideDiscardButton() {
         guard let url = audioView.audioUrl else {
             return
         }
+
+        audioView.player?.stop()
+        audioView.player = nil
 
         delegate?.previewAudioView(self, didDiscardAudio: url)
     }
@@ -185,8 +189,12 @@ extension PreviewAudioView {
             return
         }
 
+        audioView.player?.stop()
+        audioView.player = nil
+
         delegate?.previewAudioView(self, didConfirmAudio: url)
     }
+
 }
 
 // MARK: SwipeIndicatorView
@@ -276,7 +284,7 @@ public class AudioView: UIView {
         layer.cornerRadius = Consts.layerCornerRadius
         clipsToBounds = true
 
-        NotificationCenter.default.addObserver(forName: .UIContentSizeCategoryDidChange, object: nil, queue: nil, using: { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: nil, using: { [weak self] _ in
             self?.setNeedsLayout()
         })
 
@@ -357,15 +365,18 @@ public class AudioView: UIView {
 // MARK: AVAudioPlayerDelegate
 
 extension AudioView: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playing = false
         progressSlider.value = 0.0
     }
+
 }
 
 // MARK: Events
 
 extension AudioView {
+
     @objc func didStartSlidingSlider(_ sender: UISlider) {
         playing = false
     }
@@ -384,4 +395,5 @@ extension AudioView {
     @objc func didPressPlayButton(_ sender: UIButton) {
         playing = !playing
     }
+
 }
