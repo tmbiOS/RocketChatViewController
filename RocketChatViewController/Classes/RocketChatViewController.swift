@@ -10,7 +10,7 @@ import UIKit
 import DifferenceKit
 
 public extension UICollectionView {
-    func dequeueChatCell(withReuseIdentifier reuseIdetifier: String, for indexPath: IndexPath) -> ChatCell {
+    public func dequeueChatCell(withReuseIdentifier reuseIdetifier: String, for indexPath: IndexPath) -> ChatCell {
         guard let cell = dequeueReusableCell(withReuseIdentifier: reuseIdetifier, for: indexPath) as? ChatCell else {
             fatalError("Trying to dequeue a reusable UICollectionViewCell that doesn't conforms to BindableCell protocol")
         }
@@ -132,7 +132,7 @@ public extension ChatItem where Self: Differentiable {
     // In order to use a ChatCellViewModel along with a SectionController
     // we must use it as a type-erased ChatCellViewModel, which in this case also means
     // that it must conform to the Differentiable protocol.
-    var wrapped: AnyChatItem {
+    public var wrapped: AnyChatItem {
         return AnyChatItem(self)
     }
 }
@@ -410,7 +410,11 @@ extension RocketChatViewController {
     }
 }
 
-extension RocketChatViewController: UICollectionViewDelegateFlowLayout {}
+extension RocketChatViewController: UICollectionViewDelegateFlowLayout {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .zero
+    }
+}
 
 
 extension RocketChatViewController {

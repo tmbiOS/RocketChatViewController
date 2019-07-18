@@ -90,7 +90,7 @@ final class ChatViewController: RocketChatViewController {
 }
 
 extension ChatViewController {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sectionController = data[indexPath.section].model.base
         let viewModel = sectionController.viewModels()[indexPath.row]
 
