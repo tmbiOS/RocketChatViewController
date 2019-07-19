@@ -483,7 +483,9 @@ extension RocketChatViewController {
                 return
             }
 
-            composerView.containerViewLeadingConstraint.constant = window.bounds.width - view.bounds.width
+            DispatchQueue.main.async {
+                self.composerView.containerViewLeadingConstraint.constant = window.bounds.width - self.view.bounds.width
+            }
         }
     }
 }
